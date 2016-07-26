@@ -23,6 +23,8 @@ sleep_time_default=1
 sleep_time_login=1
 sleep_time_login_failed=60
 sleep_time_no_con=5
+max_time_test=5
+max_time_login=5
 test_url='' # Can not naturally redirect
 login_url=''
 header_connection='Connection: close'
@@ -49,18 +51,18 @@ hash curl 2>/dev/null || {
 }
 
 function test_connection {
-  curl -o /dev/null --silent --insecure --head --write-out '%{http_code}\n' $test_url
+  curl -o /dev/null --max-time $max_time_test --silent --insecure --head --write-out '%{http_code}\n' $test_url
 }
 
-function test_connection_loud {
+function test_connection_debug {
   curl --head --insecure $test_url
 }
 
 function login {
-  curl  -o /dev/null --silent --insecure --write-out '%{http_code}\n' -H "$header_connection" -H "$header_user_agent" -H "$header_content_type" --data "$data" "$login_url"
+  curl  -o /dev/null  --max-time $max_time_login --silent --insecure --write-out '%{http_code}\n' -H "$header_connection" -H "$header_user_agent" -H "$header_content_type" --data "$data" "$login_url"
 }
 
-function login_loud {
+function login_debug {
   curl -i --insecure -H "$header_connection" -H "$header_user_agent" -H "$header_content_type" --data "$data" "$login_url"
 }
 
@@ -100,11 +102,11 @@ echo
 if [[ $debug != 0 ]]; then
   echo "\$data='$data'"
   echo
-  echo "[Test connection HEAD]"
-  test_connection_loud
+  echo "[DEBUG] Test connection using HEAD:"
+  test_connection_debug
   echo
-  echo "[Login]"
-  login_loud
+  echo "[DEBUG] Forcefully logging in:"
+  login_debug
   echo
 fi
 
