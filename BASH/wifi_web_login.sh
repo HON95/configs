@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Author: HON
-# WiFi web login script R1
+# WiFi web login script R2
 #
 # Requires BASH, cURL
 #
@@ -12,6 +12,11 @@ color_green='\e[32m'
 color_red='\e[31m'
 color_yellow='\e[33m'
 color_end='\e[0m'
+status_unknown=0
+status_no_con=1
+status_connected=2
+status_logging_in=3
+status_login_failed=4
 
 # Credentials
 user=''
@@ -33,10 +38,10 @@ header_content_type='application/x-www-form-urlencoded'
 data="login=true&auth_user=${user}&auth_pass=${pass}&redirurl"%"2F=&accept=Continue"
 
 # State variables
-last_test_connected='0'
-last_test_logging_in='0'
 test_http_code=''
 login_http_code=''
+status=''
+last_status='0'
 
 # Check if BASH shell
 if ! test -n "$BASH_VERSION"; then
@@ -123,35 +128,35 @@ while :; do
   fi
   
   if [[ $test_http_code == 200 ]]; then
-    if [[ $last_test_connected == 0 ]]; then
+  status=$status_connected
+    if [[ $last_status != $status ]]; then
       print_status "${color_green}Connected.${color_end}"
-      last_test_connected=1
     fi
   elif [[ $test_http_code == 302 ]]; then
-    if [[ $last_test_logging_in == 0 ]]; then
+    if [[ $last_status != $status_logging_in ]]; then
+      status=$status_logging_in
       print_status "${color_yellow}Logging in...${color_end}"
       login_http_code=$(login)
-      last_test_logging_in=1
       sleep_time=$sleep_time_login
     else
+      status=$status_login_failed
       print_status "${color_red}Login failed!${color_end}"
-      last_test_logging_in=0
       sleep_time=$sleep_time_login_failed
     fi
   elif [[ $test_http_code == 000 ]]; then
-    print_status "No connection."
-    sleep_time=$sleep_time_no_con
+    status=$status_no_con
+    if [[ $last_status != $status ]]; then
+      print_status "No connection."
+      sleep_time=$sleep_time_no_con
+    fi
   else
-    print_status "${color_red}Unknown code.${color_end}"
+    status=$status_unknown
+    if [[ $last_status != $status ]]; then
+      print_status "${color_red}Unknown code.${color_end}"
+    fi
   fi
   
-  if [[ $test_http_code != 200 ]]; then
-    last_test_connected=0
-  fi
-  
-  if [[ $test_http_code != 302 ]]; then
-    last_test_logging_in=0
-  fi
+  last_status=$status
   
   sleep $sleep_time
 done
