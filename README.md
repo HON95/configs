@@ -1,2 +1,2 @@
 # Scripts
-Collection of miscellaneous BASH, Batch, etc scripts
+Some scripts I might need again sometime
