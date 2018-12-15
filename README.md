@@ -1,2 +1,2 @@
-# Scripts
-Some scripts I might need again sometime
+# Miscellaneous Scripts
+For some misc. scripts in particular.
