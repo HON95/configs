@@ -5,7 +5,7 @@
 # Checks if the user has configured Google Authenticator MFA,
 # and prompts it to do so if it is not.
 # Type: profile.d script
-# Version: 1.0.1
+# Version: 1.0.2
 # Author: HON
 
 FILE="$HOME/.google_authenticator"
@@ -17,6 +17,9 @@ FILE="$HOME/.google_authenticator"
 CONFIGURE_CMD="google-authenticator -tduW"
 # Use "return" if profile.d script and "exit 0" otherwise.
 EXIT_CMD="return"
+
+# Don't run if sudo
+[ -z "$SUDO_USER" ] || $EXIT_CMD
 
 # Check dependencies
 command -v "google-authenticator" >/dev/null 2>&1 || {
