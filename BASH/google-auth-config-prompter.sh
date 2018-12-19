@@ -5,7 +5,7 @@
 # Checks if the user has configured Google Authenticator MFA,
 # and prompts it to do so if it is not.
 # Type: profile.d script
-# Version: 1.0.0
+# Version: 1.0.1
 # Author: HON
 
 FILE="$HOME/.google_authenticator"
@@ -14,13 +14,18 @@ FILE="$HOME/.google_authenticator"
 # d: Don't allow token reuse
 # u: Don't rate limit
 # W: Allow one code before and one after current code
-CONFIGURE="google-authenticator -tduW"
+CONFIGURE_CMD="google-authenticator -tduW"
+# Use "return" if profile.d script and "exit 0" otherwise.
+EXIT_CMD="return"
 
 # Check dependencies
-command -v "google-authenticator" >/dev/null 2>&1 || { echo >&2 "Google Authenticator not found."; exit 1; }
+command -v "google-authenticator" >/dev/null 2>&1 || {
+  echo >&2 "Google Authenticator not found."
+  $EXIT_CMD
+}
 
 # Exit successfully if it exists
-[ ! -f "$FILE" ] || exit 0
+[ ! -f "$FILE" ] || $EXIT_CMD
 
 # Ask to configure
 echo "You have not yet configured Google Authenticator MFA."
@@ -35,8 +40,8 @@ while :; do
 done
 
 # Exit successfully if user said no
-[ $continue ] || exit 1
+[ $continue -eq 0 ] || $EXIT_CMD
 
 # Configure
 echo "Please add the account to your app and store the secret key and codes somewhere safe BEFORE continuing here."
-$CONFIGURE
+$CONFIGURE_CMD
