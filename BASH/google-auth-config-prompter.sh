@@ -5,7 +5,7 @@
 # Checks if the user has configured Google Authenticator MFA,
 # and prompts it to do so if it is not.
 # Type: profile.d script
-# Version: 1.0.2
+# Version: 1.0.3
 # Author: HON
 
 FILE="$HOME/.google_authenticator"
@@ -46,5 +46,8 @@ done
 [ $continue -eq 0 ] || $EXIT_CMD
 
 # Configure
-echo "Please add the account to your app and store the secret key and codes somewhere safe BEFORE continuing here."
+echo "Please add the account to your authenticator app and store the secret key and codes somewhere safe BEFORE saving here."
+echo "Also, please widen your terminal window to make the QR code render properly."
+read -p "Press enter to continue or CTRL+C to cancel."
+
 $CONFIGURE_CMD
