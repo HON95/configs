@@ -5,10 +5,18 @@
 # Checks if the user has configured Google Authenticator MFA,
 # and prompts it to do so if it is not.
 # Type: profile.d script
-# Version: 1.0.3
+# Version: 1.0.4
 # Author: HON
 
-FILE="$HOME/.google_authenticator"
+# Changelog:
+# 1.0.4: Don't run for system users
+# 1.0.3: Add prompt to widen terminal, as narrow terminals will mess up QR code
+# 1.0.2: Don't run if SUDO
+# 1.0.1: Avoid "exit", it breaks profile.d
+# 1.0.0: Release
+
+SYS_UID_MAX=999
+DIR="$HOME/.google_authenticator"
 # Arguments:
 # t: Time-based tokens
 # d: Don't allow token reuse
@@ -17,6 +25,9 @@ FILE="$HOME/.google_authenticator"
 CONFIGURE_CMD="google-authenticator -tduW"
 # Use "return" if profile.d script and "exit 0" otherwise.
 EXIT_CMD="return"
+
+# Don't run if system user
+[ $(id -u) -gt $SYS_UID_MAX ] || $EXIT_CMD
 
 # Don't run if sudo
 [ -z "$SUDO_USER" ] || $EXIT_CMD
@@ -28,7 +39,7 @@ command -v "google-authenticator" >/dev/null 2>&1 || {
 }
 
 # Exit successfully if it exists
-[ ! -f "$FILE" ] || $EXIT_CMD
+[ ! -f "$DIR" ] || $EXIT_CMD
 
 # Ask to configure
 echo "You have not yet configured Google Authenticator MFA."
