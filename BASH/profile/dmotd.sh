@@ -10,6 +10,7 @@
 # Author: HON
 
 # Changelog:
+# 1.1.1: Change users format (and remove tabs in src)
 # 1.1.0: Add static MOTD and make more customizable
 # 1.0.2: Don't run for system users
 # 1.0.1: Avoid "exit", it breaks profile.d
@@ -40,17 +41,17 @@ if [ -z "$SUDO_USER" ] && [ $(id -u) -gt $SYS_UID_MAX ]; then
   # Pre MOTD
   if [ "$USE_PRE_MOTD" = "yes" ] && [ -f "$PRE_MOTD_PATH" ]; then
     if [ "$USE_LOLCAT_PRE_MOTD" = "yes" ]; then
-	  cat "$PRE_MOTD_PATH" | lolcat
-	else
-	  cat "$PRE_MOTD_PATH"
-	fi
+    cat "$PRE_MOTD_PATH" | lolcat
+  else
+    cat "$PRE_MOTD_PATH"
+  fi
     echo
   fi
 
   # Neofetch
   if [ "$USE_NEOFETCH" = "yes" ]; then
     if [ "$USE_NEOFETCH_IMAGE" = "yes" ]; then
-	  neofetch
+    neofetch
     else
       neofetch --off
     fi
@@ -59,14 +60,15 @@ if [ -z "$SUDO_USER" ] && [ $(id -u) -gt $SYS_UID_MAX ]; then
 
   # Users
   if [ "$USE_USERS" = "yes" ]; then
-    echo "Users:"
+    echo "Users"
+  echo "-----"
     who
-	echo
+  echo
   fi
 
   # Post MOTD
   if [ "$USE_POST_MOTD" = "yes" ] && [ -f "$POST_MOTD_PATH" ]; then
     cat "$POST_MOTD_PATH"
-	echo
+  echo
   fi
 fi
