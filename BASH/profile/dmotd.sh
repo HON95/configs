@@ -6,10 +6,11 @@
 # Does not print if sudo environment is detected,
 # or if the UID is less than or equal to SYS_UID_MAX.
 # Type: profile.d script
-# Version: 1.1.0
+# Version: 1.1.2
 # Author: HON
 
 # Changelog:
+# 1.1.2: Add last login
 # 1.1.1: Change users format (and remove tabs in src)
 # 1.1.0: Add static MOTD and make more customizable
 # 1.0.2: Don't run for system users
@@ -20,27 +21,29 @@
 
 # Max system UID, UIDs equal to or below this value don't run the script
 SYS_UID_MAX=999
-# Path to static MOTD to show first
-PRE_MOTD_PATH="/etc/pre-motd"
-# Path to static MOTD to show last
-POST_MOTD_PATH="/etc/post-motd"
 # Enable static MOTD to show first
 USE_PRE_MOTD="no"
-# Enable static MOTD to show last
-USE_POST_MOTD="no"
+# Path to static MOTD to show first
+PRE_MOTD_PATH="/etc/pre-motd"
 # Enable lolcat for MOTD to show first (requires lolcat)
 USE_LOLCAT_PRE_MOTD="yes"
+# Enable static MOTD to show last
+USE_POST_MOTD="no"
+# Path to static MOTD to show last
+POST_MOTD_PATH="/etc/post-motd"
 # Enable Neofetch
 USE_NEOFETCH="yes"
 # Enable Neofetch image
 USE_NEOFETCH_IMAGE="no"
+# Enable print last login
+USE_LAST_LOGIN="yes"
 # Enable print logged-in users
 USE_USERS="yes"
 
-if [ -z "$SUDO_USER" ] && [ $(id -u) -gt $SYS_UID_MAX ]; then
+if [[ -z $SUDO_USER ]] && [[ $(id -u) -gt $SYS_UID_MAX ]]; then
   # Pre MOTD
-  if [ "$USE_PRE_MOTD" = "yes" ] && [ -f "$PRE_MOTD_PATH" ]; then
-    if [ "$USE_LOLCAT_PRE_MOTD" = "yes" ]; then
+  if [[ $USE_PRE_MOTD = "yes" ]] && [[ -f $PRE_MOTD_PATH ]]; then
+    if [[ $USE_LOLCAT_PRE_MOTD = "yes" ]]; then
     cat "$PRE_MOTD_PATH" | lolcat
   else
     cat "$PRE_MOTD_PATH"
@@ -49,25 +52,36 @@ if [ -z "$SUDO_USER" ] && [ $(id -u) -gt $SYS_UID_MAX ]; then
   fi
 
   # Neofetch
-  if [ "$USE_NEOFETCH" = "yes" ]; then
-    if [ "$USE_NEOFETCH_IMAGE" = "yes" ]; then
-    neofetch
+  if [[ $USE_NEOFETCH = "yes" ]]; then
+    if [[ $USE_NEOFETCH_IMAGE = "yes" ]]; then
+      neofetch
     else
       neofetch --off
+    fi
+  fi
+
+  # Last login
+  if [[ $USE_LAST_LOGIN = "yes" ]]; then
+    echo -n "Last login: "
+    last_out=$(last -n1 | head -n1)
+    if [[ ! -z $last_out ]]; then
+      echo "$last_out" | sed -E 's/^([^ ]+ +){2}//' | sed -E 's/^([^ ]+)[ ]+/\1,  /'
+    else
+      echo "(never)"
     fi
     echo
   fi
 
   # Users
-  if [ "$USE_USERS" = "yes" ]; then
+  if [[ $USE_USERS = "yes" ]]; then
     echo "Users"
-  echo "-----"
+    echo "-----"
     who
-  echo
+    echo
   fi
 
   # Post MOTD
-  if [ "$USE_POST_MOTD" = "yes" ] && [ -f "$POST_MOTD_PATH" ]; then
+  if [[ $USE_POST_MOTD = "yes" ]] && [[ -f $POST_MOTD_PATH ]]; then
     cat "$POST_MOTD_PATH"
   echo
   fi
