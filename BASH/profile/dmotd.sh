@@ -7,10 +7,11 @@
 # or if the UID is less than or equal to SYS_UID_MAX.
 # Type: profile.d script
 # Dependencies: neofetch lolcat
-# Version: 1.1.4
+# Version: 1.1.5
 # Author: HON
 
 # Changelog:
+# 1.1.5: Add excluded groups 
 # 1.1.4: Add check for required shell features and list of excluded users
 # 1.1.3: Add list of dependencies and change some variables
 # 1.1.2: Add last login
@@ -45,7 +46,9 @@ USE_USERS="yes"
 # Max system UID, UIDs equal to or below this value don't run the script
 SYS_UID_MAX=999
 # Users that cannot run this (space separated list)
-EXCLUDED_USERS="bot"
+EXCLUDED_USERS=""
+# Groups that cannot run this (space separated list)
+EXCLUDED_GROUPS="no-dmotd"
 
 ################################################################################
 
@@ -59,8 +62,14 @@ EXCLUDED_USERS="bot"
 [[ $(id -u) -le $SYS_UID_MAX ]] && return
 
 # Check if excluded user
-REGEX="(.* )?$(id -un)( .*)?"
-[[ $EXCLUDED_USERS =~ $REGEX ]] && return
+regex="(.* )?$(id -un)( .*)?"
+[[ $EXCLUDED_USERS =~ $regex ]] && return
+
+# Check if in any excluded group
+for group in $(id -Gn); do
+    regex="(.* )?${group}( .*)?"
+    [[ $EXCLUDED_GROUPS =~ $regex ]] && return
+done
   
 # Pre MOTD
 if [[ $USE_MOTD_HEADER = "yes" ]] && [[ -f $MOTD_HEADER_PATH ]]; then

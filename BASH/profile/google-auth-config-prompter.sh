@@ -5,17 +5,17 @@
 # Checks if the user has configured Google Authenticator MFA,
 # and prompts it to do so if it is not.
 # Type: profile.d script
-# Version: 1.0.4
+# Version: 1.0.5
 # Author: HON
 
 # Changelog:
+# 1.0.5: Add excluded users and groups
 # 1.0.4: Don't run for system users
 # 1.0.3: Add prompt to widen terminal, as narrow terminals will mess up QR code
 # 1.0.2: Don't run if SUDO
 # 1.0.1: Avoid "exit", it breaks profile.d
 # 1.0.0: Release
 
-SYS_UID_MAX=999
 DIR="$HOME/.google_authenticator"
 # Arguments:
 # t: Time-based tokens
@@ -23,23 +23,40 @@ DIR="$HOME/.google_authenticator"
 # u: Don't rate limit
 # W: Allow one code before and one after current code
 CONFIGURE_CMD="google-authenticator -tduW"
-# Use "return" if profile.d script and "exit 0" otherwise.
-EXIT_CMD="return"
+# Max system UID, UIDs equal to or below this value don't run the script
+SYS_UID_MAX=999
+# Users that cannot run this (space separated list)
+EXCLUDED_USERS=""
+# Groups that cannot run this (space separated list)
+EXCLUDED_GROUPS="no-mfa"
 
-# Don't run if system user
-[ $(id -u) -gt $SYS_UID_MAX ] || $EXIT_CMD
+# Check some required shell feature is missing
+! type "[[" >/dev/null && return
 
-# Don't run if sudo
-[ -z "$SUDO_USER" ] || $EXIT_CMD
+# Check if in sudo
+[[ ! -z "$SUDO_USER" ]] && return
+
+# Check if system user
+[[ $(id -u) -le $SYS_UID_MAX ]] && return
+
+# Check if excluded user
+regex="(.* )?$(id -un)( .*)?"
+[[ $EXCLUDED_USERS =~ $regex ]] && return
+
+# Check if in any excluded group
+for group in $(id -Gn); do
+    regex="(.* )?${group}( .*)?"
+    [[ $EXCLUDED_GROUPS =~ $regex ]] && return
+done
 
 # Check dependencies
 command -v "google-authenticator" >/dev/null 2>&1 || {
   echo >&2 "Google Authenticator not found."
-  $EXIT_CMD
+  return
 }
 
 # Exit successfully if it exists
-[ ! -f "$DIR" ] || $EXIT_CMD
+[ ! -f "$DIR" ] || return
 
 # Ask to configure
 echo "You have not yet configured Google Authenticator MFA."
@@ -54,7 +71,7 @@ while :; do
 done
 
 # Exit successfully if user said no
-[ $continue -eq 0 ] || $EXIT_CMD
+[ $continue -eq 0 ] || return
 
 # Configure
 echo "Please add the account to your authenticator app and store the secret key and codes somewhere safe BEFORE saving here."
