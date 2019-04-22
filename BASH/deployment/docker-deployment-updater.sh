@@ -6,11 +6,15 @@
 #   and runs a script of so.
 #   Logs to file instead of outputting errors.
 # Type: Script
-# Version: 1.0.0
-# Author: HON
-# Requires: docker jq
+# Dependencies: docker jq
 # Comments:
 # - Suggested crontab line: "*/5 * * * * root /srv/app/updater.sh"
+# Version: 1.0.1
+# Author: HON
+
+# Changelog:
+# 1.0.1: Set correct workdir
+# 1.0.0: Release
 
 WORKDIR="/srv/app"
 CONTAINER="app"
@@ -25,6 +29,8 @@ timestamp="$(date "+%Y-%m-%d %H:%M:%S")"
 function log {
     echo "$timestamp $1" >> $LOG_FILE
 }
+
+cd $WORKDIR
 
 # Lock (mkdir uses atomic check-and-create)
 if ! mkdir $LOCK_DIR 2>/dev/null; then
