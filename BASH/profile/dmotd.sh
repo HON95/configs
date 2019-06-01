@@ -1,30 +1,33 @@
 #!/usr/bin/env bash
 
-# Name: MOTD
+# Name: DMOTD
 # Description:
 # Prints optional static MOTD, neofetch info and logged in users.
 # Does not print if sudo environment is detected,
 # or if the UID is less than or equal to SYS_UID_MAX.
 # Type: profile.d script
 # Dependencies: neofetch lolcat
-# Version: 1.1.5
+# Version: 1.1.6
 # Author: HON
 
 # Changelog:
-# 1.1.5: Add excluded groups 
-# 1.1.4: Add check for required shell features and list of excluded users
-# 1.1.3: Add list of dependencies and change some variables
-# 1.1.2: Add last login
-# 1.1.1: Change users format (and remove tabs in src)
-# 1.1.0: Add static MOTD and make more customizable
-# 1.0.2: Don't run for system users
-# 1.0.1: Avoid "exit", it breaks profile.d
-# 1.0.0: Release
+# 1.1.6: Added screen clearing option.
+# 1.1.5: Added excluded groups .
+# 1.1.4: Added check for required shell features and list of excluded users.
+# 1.1.3: Added list of dependencies and change some variables.
+# 1.1.2: Added last login.
+# 1.1.1: Changed users format (and remove tabs in src).
+# 1.1.0: Added static MOTD and make more customizable.
+# 1.0.2: Changed to not run for system users.
+# 1.0.1: Fixed "exit" commands, which break profile.d.
+# 1.0.0: Initial release.
 
 ################################################################################
 
 # For boolean options, "yes" (not "YES", 1, true) is the only recognized value for true
 
+# Enable screen clearing before DMOTD
+USE_CLEAR="yes"
 # Enable MOTD header
 USE_MOTD_HEADER="yes"
 # Path to logo
@@ -70,6 +73,11 @@ for group in $(id -Gn); do
     regex="(.* )?${group}( .*)?"
     [[ $EXCLUDED_GROUPS =~ $regex ]] && return
 done
+
+# Clear
+if [[ $USE_CLEAR = "yes" ]]; then
+  clear
+fi
   
 # Pre MOTD
 if [[ $USE_MOTD_HEADER = "yes" ]] && [[ -f $MOTD_HEADER_PATH ]]; then
