@@ -1,7 +1,15 @@
-Faults:
-@if ($alert->faults)
-(None)
+Unique-ID: {{ $alert->uid }}
+Timestamp: {{ $alert->timestamp }}
+Time elapsed: {{ $alert->elapsed }}
+@if ($alert->alert_notes)
+
+Ack notes:
+{{ $alert->alert_notes }}
 @endif
+@if ($alert->faults)
+
+Faults:
 @foreach ($alert->faults as $key => $value)
-#{{ $key }}: {{ $value['string'] }}
+[#{{ $key }}] {{ $value['string'] }}
 @endforeach
+@endif
