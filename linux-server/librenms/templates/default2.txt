@@ -1,0 +1,16 @@
+Device: {{ $alert->hostname }}
+Severity: {{ $alert->severity }}
+@if ($alert->name)
+Rule: {{ $alert->name }}
+@endif
+@if ($alert->state == 0)
+Time elapsed: {{ $alert->elapsed }}
+@endif
+Timestamp: {{ $alert->timestamp }}
+Unique-ID: {{ $alert->uid }}
+@if ($alert->faults)
+Faults:
+@foreach ($alert->faults as $key => $value)
+#{{ $key }}: {{ $value['string'] }}
+@endforeach
+@endif
