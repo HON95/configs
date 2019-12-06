@@ -1,0 +1,7 @@
+Faults:
+@if ($alert->faults)
+(None)
+@endif
+@foreach ($alert->faults as $key => $value)
+#{{ $key }}: {{ $value['string'] }}
+@endforeach
