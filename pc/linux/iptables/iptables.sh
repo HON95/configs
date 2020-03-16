@@ -10,16 +10,16 @@ command -v netfilter-persistent 1>/dev/null || (echo "Please install iptables-pe
 ## Helper functions
 
 ipt4() {
-    iptables "$@" || return $?
+    iptables "$@"
 }
 
 ipt6() {
-    ip6tables "$@" || return $?
+    ip6tables "$@"
 }
 
 ipt46() {
-    ipt4 "$@" || return $?
-    ipt6 "$@" || return $?
+    ipt4 "$@"
+    ipt6 "$@"
 }
 
 ipt_save() {
@@ -57,6 +57,8 @@ ipt6 -A INPUT -p icmpv6 --icmpv6-type router-solicitation -j ACCEPT
 ipt6 -A INPUT -p icmpv6 --icmpv6-type router-advertisement -j ACCEPT
 ipt6 -A INPUT -p icmpv6 --icmpv6-type neighbor-solicitation -j ACCEPT
 ipt6 -A INPUT -p icmpv6 --icmpv6-type neighbor-advertisement -j ACCEPT
+# DHCPv6 client
+ipt6 -A INPUT -p udp --dport 546 -j ACCEPT
 
 ## Input Special
 # SSH
