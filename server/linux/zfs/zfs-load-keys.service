@@ -1,5 +1,5 @@
 [Unit]
-Description=Load encryption keys
+Description=Load encryption keys for all ZFS pools
 DefaultDependencies=no
 Before=zfs-mount.service
 After=zfs-import.target
