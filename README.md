@@ -1,1 +1,1 @@
-# Miscellaneous Configs & Scripts
+# Miscellaneous Configs
