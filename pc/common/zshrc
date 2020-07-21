@@ -12,7 +12,7 @@ ENABLE_CORRECTION="false"
 UPDATE_ZSH_DAYS=7
 
 # Plugins
-plugins=(git)
+plugins=(git zsh-syntax-highlighting)
 
 # Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
