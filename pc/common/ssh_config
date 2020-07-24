@@ -1,4 +1,10 @@
-# Use special user and key for host
-host github.com
+# Set user and identity file for git@github.com
+Host github.com
     User git
-    IdentityFile ~/.ssh/id_rsa_artorias
+    IdentityFile ~/.ssh/id_rsa_whatever
+
+# Add proxy alias
+Host example-inside
+    User user1
+    HostName inside.example.net
+    ProxyCommand ssh user1@proxy.example.com -W %h:%p
