@@ -3,8 +3,23 @@ Host github.com
     User git
     IdentityFile ~/.ssh/id_rsa_whatever
 
-# Add proxy alias
-Host example-inside
+# Proxy example 1
+Host example-target
     User user1
-    HostName inside.example.net
-    ProxyCommand ssh user1@proxy.example.com -W %h:%p
+    HostName target.example.net
+    ProxyCommand ssh user1@proxy.example.net -W %h:%p
+
+# Proxy example 2 (part 1/2)
+Host example-proxy
+    User user1
+    IdentityFile ~/.ssh/id_rsa_xxx
+    HostName proxty.example.net
+    Port 5555
+
+# Proxy example 2 (part 2/2)
+Host example-target
+    User user1
+    IdentityFile ~/.ssh/id_rsa_xxx
+    HostName target.example.net
+    ProxyJump example-proxy
+    
