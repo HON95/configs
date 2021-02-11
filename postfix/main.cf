@@ -1,0 +1,33 @@
+# Compatibility version
+compatibility_level = 2
+
+# Hostname
+myhostname = node.example.net
+
+smtpd_banner = $myhostname ESMTP
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+mydestination = $myhostname, localhost
+# Only accept incoming mail from localhost
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+inet_interfaces = loopback-only
+recipient_delimiter = +
+
+# Mandatory outgoing encryption (for relay if used)
+smtp_tls_security_level = encrypt
+
+# Relay
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_sasl_security_options = noanonymous
+smtp_sasl_tls_security_options = noanonymous
+smtp_sasl_mechanism_filter = AUTH LOGIN
+header_size_limit = 4096000
+relayhost = [smtp.eu.mailgun.org]:587
+#relayhost = [smtp.sendgrid.net]:587
+
+# Disable "biff" service which sends "new mail" notifications
+biff = no
+
+# Header transformations
+#smtp_header_checks = regexp:/etc/postfix/smtp_header_checks

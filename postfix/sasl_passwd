@@ -1,0 +1,2 @@
+[smtp.eu.mailgun.org]:587 postmaster@mg.node.example.net:the-password
+[smtp.sendgrid.net]:587 apikey:the-api-key

@@ -1,0 +1,2 @@
+/^From:\s*.*\S+@node\.example\.net.*$/ REPLACE From: "Node" <root@node.example.net>
+/^To:\s*.*\S+@node\.example\.net.*$/ REPLACE To: "Admin" <admin@example.net>
