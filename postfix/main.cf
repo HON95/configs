@@ -1,6 +1,11 @@
 # Use modern defaults
 compatibility_level = 2
 
+# Hostname stuff (in order)
+myhostname = node.example.net
+myorigin = $myhostname
+mydestination = $myorigin, localhost
+
 # Only listen to localhost and don't proxy from anywhere
 inet_interfaces = loopback-only
 inet_protocols = all
