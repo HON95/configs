@@ -13,6 +13,7 @@ biff = no
 
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
+virtual_alias_maps = hash:/etc/postfix/virtual_aliases
 
 # TLS parameters
 smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
