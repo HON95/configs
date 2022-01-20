@@ -3,9 +3,9 @@ Name=en<...>
 
 # For DHCP/SLAAC
 [Network]
-# DHCPv4
+# IPv4 DHCP
 DHCP=ipv4
-# IPv6 SLAAC, will enable DHCPv6 if necessary
+# IPv6 SLAAC/DHCP (triggers DHCPv6 if required, regardless of the DHCP parameter)
 IPv6AcceptRA=yes
 
 # For static IP addresses
@@ -22,3 +22,15 @@ IPv6AcceptRA=yes
 #Gateway=fd00::1
 #DNS=fd00::1
 #NTP=fd00::1
+
+# (Optional) DHCP options
+[DHCP]
+UseDNS=yes
+UseNTP=no
+UseHostname=no
+UseDomains=yes
+
+# (Optional) IPv6 RA options
+[IPV6ACCEPTRA]
+UseDNS=yes
+UseDomains=yes
