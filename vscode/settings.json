@@ -17,5 +17,7 @@
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
     "html.autoClosingTags": false,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "workbench.startupEditor": "none",
+    "telemetry.telemetryLevel": "off"
 }
