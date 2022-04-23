@@ -1,6 +1,6 @@
-# Add all SSH keys to use
+# Add all SSH keys to use (ordered)
 Host *
-    IdentityFile ~/.ssh/id_rsa_artorias
+    IdentityFile ~/.ssh/id_rsa_something
     IdentityFile ~/.ssh/id_rsa
 
 # Set user and identity file for git@github.com
