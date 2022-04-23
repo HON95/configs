@@ -1,25 +1,29 @@
+# Add all SSH keys to use
+Host *
+    IdentityFile ~/.ssh/id_rsa_artorias
+    IdentityFile ~/.ssh/id_rsa
+
 # Set user and identity file for git@github.com
 Host github.com
     User git
-    IdentityFile ~/.ssh/id_rsa_whatever
+    IdentityFile ~/.ssh/id_rsa_something
 
 # Proxy example 1
-Host example-target
-    User user1
-    HostName target.example.net
-    ProxyCommand ssh user1@proxy.example.net -W %h:%p
+#Host example-target
+#    User user1
+#    HostName target.example.net
+#    ProxyCommand ssh user1@proxy.example.net -W %h:%p
 
 # Proxy example 2 (part 1/2)
-Host example-proxy
-    User user1
-    IdentityFile ~/.ssh/id_rsa_xxx
-    HostName proxty.example.net
-    Port 5555
+#Host example-proxy
+#    User user1
+#    IdentityFile ~/.ssh/id_rsa_xxx
+#    HostName proxty.example.net
+#    Port 5555
 
 # Proxy example 2 (part 2/2)
-Host example-target
-    User user1
-    IdentityFile ~/.ssh/id_rsa_xxx
-    HostName target.example.net
-    ProxyJump example-proxy
-    
+#Host example-target
+#    User user1
+#    IdentityFile ~/.ssh/id_rsa_xxx
+#    HostName target.example.net
+#    ProxyJump example-proxy
