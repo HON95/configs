@@ -16,6 +16,7 @@
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
+    "editor.selectionClipboard": false,
     "html.autoClosingTags": false,
     "files.trimTrailingWhitespace": true,
     "workbench.startupEditor": "none",
