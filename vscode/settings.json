@@ -22,6 +22,7 @@
     "editor.autoSurround": "never",
     "editor.selectionClipboard": false,
     "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.suggestOnTriggerCharacters": false,
 
     "html.autoClosingTags": false
 }
