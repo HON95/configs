@@ -1,24 +1,27 @@
 {
-    "files.encoding": "utf8",
-    "files.eol": "\n",
+    "workbench.startupEditor": "none",
+    "telemetry.telemetryLevel": "off",
 
     "explorer.openEditors.visible": 0,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "explorer.autoReveal": false,
+
+    "files.encoding": "utf8",
+    "files.eol": "\n",
     "files.exclude": {
       "**/__pycache__/": true,
       "**/*.o": true,
       "**/*.pyc": true
     },
+    "files.trimTrailingWhitespace": true,
 
     "editor.quickSuggestions": false,
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
     "editor.selectionClipboard": false,
-    "html.autoClosingTags": false,
-    "files.trimTrailingWhitespace": true,
-    "workbench.startupEditor": "none",
-    "telemetry.telemetryLevel": "off"
+    "editor.acceptSuggestionOnCommitCharacter": false,
+
+    "html.autoClosingTags": false
 }
