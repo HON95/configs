@@ -1,8 +1,10 @@
 [user]
-	name = <full_name>
-	email = <email_addr>
+name = <full_name>
+email = <email_addr>
+
 [commit]
-	gpgsign = false
+gpgsign = false
+
 [core]
-	autocrlf = input
-	eol = lf
+autocrlf = input
+eol = lf
