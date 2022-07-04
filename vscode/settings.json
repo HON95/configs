@@ -23,6 +23,7 @@
     "editor.selectionClipboard": false,
     "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.suggestOnTriggerCharacters": false,
+    "editor.inlayHints.enabled": false,
 
     "html.autoClosingTags": false,
     
