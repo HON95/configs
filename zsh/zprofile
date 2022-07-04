@@ -1,0 +1,8 @@
+# Load profile scripts
+emulate sh -c "source /etc/profile"
+
+# Aliases
+alias ip="ip -c"
+
+# k8s command completion
+#source <(kubectl completion zsh)
