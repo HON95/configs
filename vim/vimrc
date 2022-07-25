@@ -1,6 +1,8 @@
-" No mouse
+" Disable mouse
 set mouse=
 set ttymouse=
+" Show line numbers (absolute)
+set numbers
 " Use 4-space indentation
 set expandtab
 set tabstop=4
