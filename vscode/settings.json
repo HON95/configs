@@ -15,6 +15,7 @@
       "**/*.pyc": true
     },
     "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
 
     "editor.quickSuggestions": false,
     "editor.autoClosingBrackets": "never",
