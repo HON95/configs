@@ -1,39 +1,40 @@
 {
-    "workbench.startupEditor": "none",
-    "telemetry.telemetryLevel": "off",
-    "redhat.telemetry.enabled": false,
+  "workbench.startupEditor": "none",
+  "telemetry.telemetryLevel": "off",
+  "redhat.telemetry.enabled": false,
 
-    "explorer.openEditors.visible": 0,
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "explorer.autoReveal": false,
+  "explorer.openEditors.visible": 0,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.autoReveal": false,
 
-    "files.encoding": "utf8",
-    "files.eol": "\n",
-    "files.exclude": {
-      "**/__pycache__/": true,
-      "**/*.o": true,
-      "**/*.pyc": true
-    },
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/__pycache__/": true,
+    "**/*.o": true,
+    "**/*.pyc": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
 
-    "editor.quickSuggestions": {
-      "comments": "off",
-      "strings": "off",
-      "other": "off"
-    },
-    "editor.autoClosingBrackets": "never",
-    "editor.autoClosingQuotes": "never",
-    "editor.autoSurround": "never",
-    "editor.selectionClipboard": false,
-    "editor.acceptSuggestionOnCommitCharacter": false,
-    "editor.suggestOnTriggerCharacters": false,
-    "editor.inlayHints.enabled": "off",
+  "editor.quickSuggestions": {
+    "comments": "off",
+    "strings": "off",
+    "other": "off"
+  },
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.autoSurround": "never",
+  "editor.selectionClipboard": false,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.inlayHints.enabled": "off",
 
-    "html.autoClosingTags": false,
+  "html.autoClosingTags": false,
 
-    "python.linting.flake8Args": [
-        "--max-line-length=160"
-    ]
+  "python.linting.flake8Args": [
+      "--max-line-length=160"
+  ]
 }
