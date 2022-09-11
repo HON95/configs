@@ -1,6 +1,7 @@
 {
     "workbench.startupEditor": "none",
     "telemetry.telemetryLevel": "off",
+    "redhat.telemetry.enabled": false,
 
     "explorer.openEditors.visible": 0,
     "explorer.confirmDragAndDrop": false,
@@ -17,17 +18,21 @@
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
 
-    "editor.quickSuggestions": false,
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
     "editor.autoSurround": "never",
     "editor.selectionClipboard": false,
     "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.suggestOnTriggerCharacters": false,
-    "editor.inlayHints.enabled": false,
+    "editor.inlayHints.enabled": "off",
 
     "html.autoClosingTags": false,
-    
+
     "python.linting.flake8Args": [
         "--max-line-length=160"
     ]
