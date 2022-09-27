@@ -1,8 +1,7 @@
-# Load profile scripts
 emulate sh -c "source /etc/profile"
 
-# Aliases
+bindkey '^H' backward-kill-word
+
 alias ip="ip -c"
 
-# k8s command completion
 #source <(kubectl completion zsh)
