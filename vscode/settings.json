@@ -31,7 +31,7 @@
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.suggestOnTriggerCharacters": false,
   "editor.inlayHints.enabled": "off",
-  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 200,
 
   "html.autoClosingTags": false,
