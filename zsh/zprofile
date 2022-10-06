@@ -1,6 +1,8 @@
 # Read BASH profile, for compatibility
 emulate sh -c "source /etc/profile"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # Ctrl+backspace to delete word
 bindkey '^H' backward-kill-word
 
