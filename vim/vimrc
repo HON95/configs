@@ -2,7 +2,7 @@
 set mouse=
 set ttymouse=
 " Show line numbers (absolute)
-set number
+" set number
 " Use 4-space indentation
 set expandtab
 set tabstop=4
