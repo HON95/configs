@@ -1,0 +1,13 @@
+# /var/lib/iwd/eduroam.8021x
+
+[Security]
+EAP-Method=PEAP
+EAP-Identity=anonymous@ntnu.no
+EAP-PEAP-CACert=/var/lib/iwd/eduroam.crt
+EAP-PEAP-ServerDomainMask=radius.ntnu.no
+EAP-PEAP-Phase2-Method=MSCHAPV2
+EAP-PEAP-Phase2-Identity=<username>@ntnu.no
+EAP-PEAP-Phase2-Password=<password>
+
+[Settings]
+AutoConnect=true
