@@ -1,14 +1,2 @@
 # Read BASH profile, for compatibility
 emulate sh -c "source /etc/profile"
-
-export PATH="$HOME/.local/bin:$PATH"
-
-# Ctrl+backspace to delete word
-bindkey '^H' backward-kill-word
-
-# Aliases
-alias ip="ip -c"
-alias ls='ls -h --color=auto'
-alias open='xdg-open'
-
-#source <(kubectl completion zsh)
