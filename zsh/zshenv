@@ -1,0 +1,13 @@
+export PATH="$HOME/.local/bin:$PATH"
+
+#export PAGER=most
+
+# Ctrl+backspace to delete word
+bindkey '^H' backward-kill-word
+
+# Aliases
+alias ip='ip -c'
+alias ls='ls -h --color=auto'
+alias open='xdg-open'
+alias xcopy='xclip -selection clipboard -i'
+alias xpaste='xclip -selection clipboard -o'
