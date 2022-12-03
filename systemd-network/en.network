@@ -13,6 +13,14 @@ UseDNS=yes
 UseNTP=no
 UseHostname=no
 UseDomains=yes
+Anonymize=yes
+
+[DHCPv6]
+RouteMetric=1024
+UseDNS=yes
+UseNTP=no
+UseHostname=no
+UseDomains=yes
 
 [IPv6AcceptRA]
 RouteMetric=1024
