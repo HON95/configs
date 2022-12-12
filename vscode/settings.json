@@ -19,6 +19,8 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
 
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  
   "editor.fontSize": 12,
   "editor.quickSuggestions": {
     "comments": "off",
