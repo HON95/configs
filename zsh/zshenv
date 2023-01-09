@@ -2,6 +2,9 @@ export PATH="$HOME/.local/bin:$PATH"
 
 #export PAGER=most
 
+# Keep slash at end
+setopt no_auto_remove_slash
+
 # Ctrl+backspace to delete word
 bindkey '^H' backward-kill-word
 
