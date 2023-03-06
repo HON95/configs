@@ -1,5 +1,6 @@
 {
   "workbench.startupEditor": "none",
+  "window.restoreWindows": "none",
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
 
