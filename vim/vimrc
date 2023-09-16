@@ -1,12 +1,13 @@
-" Disable mouse
-set mouse=
-set ttymouse=
+" /etc/vimrc
+
 " Show line numbers (absolute)
-" set number
+"set number
+
 " Use 4-space indentation
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+
 " Better YAML indentation
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

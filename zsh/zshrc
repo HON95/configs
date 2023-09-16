@@ -1,19 +1,19 @@
+# See: https://wiki.hon.one/personal-device/applications/#zsh-linux
+
 ZSH="/home/hon/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Powerlevel10k (P10k) instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# OMZ config
 CASE_SENSITIVE="true"
 ENABLE_CORRECTION="false"
 UPDATE_ZSH_DAYS=7
 plugins=(git docker docker-compose golang rust zsh-syntax-highlighting)
 
-# Load OMZ
+# Load stuff
 source $ZSH/oh-my-zsh.sh
-
-# Load P10k config
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f /etc/profile.d/fzf.zsh ]] || source /etc/profile.d/fzf.zsh
+
+# Load local configs (in order)
+[[ ! -f ~/.zprofile ]] || source ~/.zprofile

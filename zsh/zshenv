@@ -1,6 +1,10 @@
 export PATH="$HOME/.local/bin:$PATH"
 
-#export PAGER=most
+# Better pager (may break for big screens)
+export PAGER=most
+
+# Node Version Manager (NVM)
+source /usr/share/nvm/init-nvm.sh
 
 # Keep slash at end
 setopt no_auto_remove_slash
