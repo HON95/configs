@@ -1,5 +1,6 @@
 # Add all SSH keys to use (ordered), plus default username if different from local machine
 Host *
+    ServerAliveInterval 60
     User hon
     IdentityFile ~/.ssh/id_rsa_something
     IdentityFile ~/.ssh/id_rsa
