@@ -10,6 +10,10 @@ Host github.com
     User git
     IdentityFile ~/.ssh/id_rsa_something
 
+# Set certain username for servers on some org
+Host *.example.com
+    User hon2
+
 # Proxy example 1
 #Host example-target
 #    User user1
