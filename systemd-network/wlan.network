@@ -4,8 +4,7 @@ Name=wlan*
 [Network]
 DHCP=yes
 IPv6AcceptRA=yes
-IPv6PrivacyExtensions=yes
-#LLDP=yes
+IPv6PrivacyExtensions=no
 IgnoreCarrierLoss=5s
 
 [DHCPv4]
@@ -27,3 +26,4 @@ UseDomains=yes
 RouteMetric=2048
 UseDNS=yes
 UseDomains=yes
+Token=prefixstable
