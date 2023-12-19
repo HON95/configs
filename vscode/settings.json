@@ -38,6 +38,7 @@
   "editor.inlayHints.enabled": "off",
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 200,
+  "editor.copyWithSyntaxHighlighting": false,
 
   "html.autoClosingTags": false,
 
