@@ -1,33 +1,34 @@
-# Add all SSH keys to use (ordered), plus default username if different from local machine
+# Set local SSH-key as preferred, enable control master for SSO, enable keep-alives.
 Host *
-    ServerAliveInterval 60
-    User hon
-    IdentityFile ~/.ssh/id_rsa_something
+    IdentityFile ~/.ssh/id_rsa_local
     IdentityFile ~/.ssh/id_rsa
+    ControlMaster auto
+    ControlPath ~/.ssh/controlmasters/%r@%h:%p
+    ServerAliveInterval 60
 
-# Set user and identity file for git@github.com
+# Set user and key for GitHub.
 Host github.com
     User git
     IdentityFile ~/.ssh/id_rsa_something
 
-# Set certain username for servers on some org
+# Set certain username for servers on some org.
 Host *.example.com
     User hon2
 
-# Proxy example 1
+# Proxy example 1.
 #Host example-target
 #    User user1
 #    HostName target.example.net
 #    ProxyCommand ssh user1@proxy.example.net -W %h:%p
 
-# Proxy example 2 (part 1/2)
+# Proxy example 2 (part 1/2).
 #Host example-proxy
 #    User user1
 #    IdentityFile ~/.ssh/id_rsa_xxx
 #    HostName proxty.example.net
 #    Port 5555
 
-# Proxy example 2 (part 2/2)
+# Proxy example 2 (part 2/2).
 #Host example-target
 #    User user1
 #    IdentityFile ~/.ssh/id_rsa_xxx
