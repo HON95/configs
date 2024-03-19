@@ -15,7 +15,10 @@
   "files.exclude": {
     "**/__pycache__/": true,
     "**/*.o": true,
-    "**/*.pyc": true
+    "**/*.pyc": true,
+    "**/.terraform": true,
+    "**/*.tfstate*": true,
+    "**/*.tfvars*": true
   },
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
