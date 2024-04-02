@@ -4,12 +4,10 @@
   "window.commandCenter": false,
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
-
   "explorer.openEditors.visible": 0,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "explorer.autoReveal": false,
-
   "files.encoding": "utf8",
   "files.eol": "\n",
   "files.exclude": {
@@ -23,9 +21,7 @@
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
-
   "security.workspace.trust.untrustedFiles": "newWindow",
-  
   "editor.fontSize": 12,
   "editor.quickSuggestions": {
     "comments": "off",
@@ -42,10 +38,14 @@
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 200,
   "editor.copyWithSyntaxHighlighting": false,
-
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "git.openRepositoryInParentFolders": "never",
   "html.autoClosingTags": false,
-
   "python.linting.flake8Args": [
-      "--max-line-length=160"
-  ]
+    "--max-line-length=160"
+  ],
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  }
 }
