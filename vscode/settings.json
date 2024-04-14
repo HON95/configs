@@ -46,6 +46,7 @@
     "--max-line-length=160"
   ],
   "[terraform]": {
-    "editor.defaultFormatter": "hashicorp.terraform"
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.tabSize": 2
   }
 }
