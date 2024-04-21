@@ -1,10 +1,28 @@
+# https://wiki.hon.one/swe/git/
+# https://github.com/HON95/configs/blob/master/git/config
+
 [user]
-name = <full_name>
-email = <email_addr>
-
-[commit]
-gpgsign = false
-
+        name = <full_name>
+        email = <email_addr>
 [core]
-autocrlf = input
-eol = lf
+        # Convert CRLF to LF
+        autocrlf = input
+[fetch]
+        # Write commit-graph cache
+        writeCommitGraph = true
+[commit]
+        # Don't auto-sign, use it selectively instead
+        gpgsign = false
+[rerere]
+        # Reuse recorded resolution (ReReRe)
+        # Remember and reapply resolutions to previous merge conflicts and stuff
+        enabled = true
+[column]
+        # Wider "git branch" output
+        ui = auto
+[branch]
+        # Sorted "git branch" output
+        sort = -committerdate
+[rebase]
+        # Automaticall update refs by sefault after rebase
+        updateRefs = true
