@@ -39,13 +39,13 @@
   "editor.wordWrapColumn": 200,
   "editor.copyWithSyntaxHighlighting": false,
   "editor.minimap.enabled": false,
-  "editor.formatOnSave": true,
   "git.openRepositoryInParentFolders": "never",
   "html.autoClosingTags": false,
   "python.linting.flake8Args": [
     "--max-line-length=160"
   ],
   "[terraform]": {
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "hashicorp.terraform",
     "editor.tabSize": 2
   }
