@@ -3,3 +3,7 @@ emulate sh -c "source /etc/profile"
 
 # Disable X11 display scaling
 export WINIT_X11_SCALE_FACTOR=1
+
+# Ansible
+export ANSIBLE_DISPLAY_SKIPPED_HOSTS=false
+export ANSIBLE_DISPLAY_OK_HOSTS=false
