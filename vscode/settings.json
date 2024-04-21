@@ -1,5 +1,6 @@
 {
   "workbench.startupEditor": "none",
+  "workbench.editor.openPositioning": "last",
   "window.restoreWindows": "none",
   "window.commandCenter": false,
   "telemetry.telemetryLevel": "off",
