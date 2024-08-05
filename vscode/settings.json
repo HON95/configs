@@ -87,5 +87,5 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "hashicorp.terraform",
     "editor.tabSize": 2
-  },
+  }
 }
