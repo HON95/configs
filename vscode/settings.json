@@ -5,6 +5,7 @@
   "window.commandCenter": false,
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
+  "update.showReleaseNotes": false,
   "explorer.openEditors.visible": 0,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
