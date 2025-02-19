@@ -1,0 +1,6 @@
+[
+    {
+        "key": "ctrl+v",
+        "command": "-editor.action.clipboardPasteAction"
+    }
+]
