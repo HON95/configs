@@ -18,7 +18,8 @@
     "**/*.pyc": true,
     "**/.terraform": true,
     "**/*.tfstate*": true,
-    "**/*.tfvars*": true
+    "**/*.tfvars*": true,
+    "**/*.ansible/": true
   },
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
