@@ -9,7 +9,7 @@ Host *
 # Set user and key for GitHub.
 Host github.com
     User git
-    IdentityFile ~/.ssh/id_rsa_something
+    IdentityFile ~/.ssh/id_rsa_local
 
 # Set certain username for servers on some org.
 Host *.example.com
