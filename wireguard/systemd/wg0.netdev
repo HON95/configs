@@ -1,0 +1,17 @@
+# Protect this file:
+# chown root:systemd-network wg0.netdev
+# chmod 0640 wg0.netdev
+
+[NetDev]
+Name=wg0
+Kind=wireguard
+Description=WireGuard tunnel to somewhere
+
+[WireGuard]
+PrivateKey=<privkey>
+RouteTable=main
+
+[WireGuardPeer]
+PublicKey=<peer-pubkey>
+AllowedIPs=<ipv4-prefix>,<ipv6-prefix>
+Endpoint=<external-ip-addr>:<port>
