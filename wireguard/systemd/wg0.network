@@ -1,0 +1,6 @@
+[Match]
+Name=wg0
+
+[Network]
+Address=<ipv4-addr>/24
+Address=<ipv6-addr>/64
