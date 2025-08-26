@@ -1,3 +1,4 @@
+# Generate new privkey and pubkey: wg genkey | (umask 0077 && tee wg.key) | wg pubkey > wg.pub
 # Protect this file:
 # chown root:systemd-network wg0.netdev
 # chmod 0640 wg0.netdev
