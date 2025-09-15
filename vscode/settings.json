@@ -78,6 +78,7 @@
   "editor.autoSurround": "never",
   "editor.selectionClipboard": false,
   "editor.copyWithSyntaxHighlighting": false,
+  "extensions.ignoreRecommendations": true,
   "git.openRepositoryInParentFolders": "never",
   "html.autoClosingTags": false,
   "html.suggest.html5": false,
