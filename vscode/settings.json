@@ -5,28 +5,15 @@
   "window.commandCenter": false,
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
+  "security.workspace.trust.untrustedFiles": "newWindow",
   "update.showReleaseNotes": false,
+  "chat.agent.enabled": false,
   "explorer.openEditors.visible": 0,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "explorer.autoReveal": false,
-  "files.encoding": "utf8",
-  "files.eol": "\n",
-  "files.exclude": {
-    "**/__pycache__/": true,
-    "**/*.o": true,
-    "**/*.pyc": true,
-    "**/.terraform": true,
-    "**/*.tfstate*": true,
-    "**/*.tfvars*": true,
-    "**/*.ansible/": true
-  },
-  "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  "security.workspace.trust.untrustedFiles": "newWindow",
   "editor.minimap.enabled": false,
-  "editor.fontSize": 12,
+  "editor.fontSize": 14,
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 200,
   "editor.quickSuggestions": {
@@ -78,6 +65,20 @@
   "editor.autoSurround": "never",
   "editor.selectionClipboard": false,
   "editor.copyWithSyntaxHighlighting": false,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/__pycache__/": true,
+    "**/*.o": true,
+    "**/*.pyc": true,
+    "**/.terraform": true,
+    "**/*.tfstate*": true,
+    "**/*.tfvars*": true,
+    "**/*.ansible/": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
   "extensions.ignoreRecommendations": true,
   "git.openRepositoryInParentFolders": "never",
   "html.autoClosingTags": false,
@@ -86,9 +87,9 @@
     "--max-line-length=160"
   ],
   "yaml.extension.recommendations": false,
-  "[terraform]": {
+  "[opentofu][opentofu-vars]": {
+    "editor.defaultFormatter": "opentofu.vscode-opentofu",
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.tabSize": 2
+    "editor.formatOnSaveMode": "file"
   }
 }
