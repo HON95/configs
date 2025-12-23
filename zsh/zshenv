@@ -6,15 +6,22 @@ export PAGER=most
 # Node Version Manager (NVM)
 #source /usr/share/nvm/init-nvm.sh
 
+# Aliases
+alias ip='ip -c'
+alias ls='ls -h --color=auto'
+alias open='xdg-open'
+#alias xcopy='xclip -selection clipboard -i'
+#alias xpaste='xclip -selection clipboard -o'
+
+# Use BASH instead if TTY
+if [[ $TERM == linux ]]; then
+  exec /sbin/bash
+fi
+
+# ZSH-spesific stuff below here
+
 # Keep slash at end
 setopt no_auto_remove_slash
 
 # Ctrl+backspace to delete word
 bindkey '^H' backward-kill-word
-
-# Aliases
-alias ip='ip -c'
-alias ls='ls -h --color=auto'
-alias open='xdg-open'
-alias xcopy='xclip -selection clipboard -i'
-alias xpaste='xclip -selection clipboard -o'
