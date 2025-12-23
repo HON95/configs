@@ -1,27 +1,26 @@
-# See: https://wiki.hon.one/personal-device/applications/#zsh-linux
-
-# Config
 ZSH="/home/hon/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Powerlevel10k (P10k) instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# OMZ config
 CASE_SENSITIVE="true"
 ENABLE_CORRECTION="false"
 UPDATE_ZSH_DAYS=7
 plugins=(git docker docker-compose golang rust zsh-syntax-highlighting)
 
-# OMZ
+# Load OMZ
 source $ZSH/oh-my-zsh.sh
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+
+# Load P10k config
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Local configs
-[[ ! -f ~/.zprofile ]] || source ~/.zprofile
-
-# Bash completion stuff
-autoload -U +X bashcompinit && bashcompinit
-
-# Extras
 source /etc/profile.d/fzf.zsh
-source <(kubectl completion zsh)
-source /usr/share/nvm/init-nvm.sh
+#source <(kubectl completion zsh)
+#source /usr/share/nvm/init-nvm.sh
+
+autoload -U +X bashcompinit && bashcompinit
+#complete -o nospace -C /usr/bin/terraform terraform
