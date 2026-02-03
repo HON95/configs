@@ -7,7 +7,7 @@
   "redhat.telemetry.enabled": false,
   "security.workspace.trust.untrustedFiles": "newWindow",
   "update.showReleaseNotes": false,
-  "chat.agent.enabled": false,
+  "chat.disableAIFeatures": false,
   "explorer.openEditors.visible": 0,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
