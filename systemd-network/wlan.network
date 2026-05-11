@@ -6,6 +6,8 @@ DHCP=yes
 IPv6AcceptRA=yes
 IPv6PrivacyExtensions=no
 IgnoreCarrierLoss=5s
+# no (disable), resolve (query only) or yes (resolve and answer)
+MulticastDNS=resolve
 
 [DHCPv4]
 RouteMetric=2048
