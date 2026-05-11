@@ -1,0 +1,5 @@
+// ~/.vscode-oss/argv.json
+{
+  // ... other settings
+  "password-store": "gnome-libsecret"
+}

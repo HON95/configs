@@ -1,3 +1,4 @@
+// ~/.config/Code - OSS/User/settings.json
 {
   "workbench.startupEditor": "none",
   "workbench.editor.openPositioning": "last",
@@ -7,7 +8,7 @@
   "redhat.telemetry.enabled": false,
   "security.workspace.trust.untrustedFiles": "newWindow",
   "update.showReleaseNotes": false,
-  "chat.disableAIFeatures": false,
+  "chat.disableAIFeatures": true,
   "explorer.openEditors.visible": 0,
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
