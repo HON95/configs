@@ -1,4 +1,5 @@
 # Set local SSH-key as preferred, enable control master for SSO, enable keep-alives.
+# Control-master path must be manually created and set to permissions 700.
 Host *
     IdentityFile ~/.ssh/id_rsa_local
     IdentityFile ~/.ssh/id_rsa
