@@ -17,6 +17,7 @@
   "editor.fontSize": 14,
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 200,
+  "editor.unicodeHighlight.nonBasicASCII": false,
   "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;'\",<>/?",
   "editor.quickSuggestions": {
     "comments": "off",
@@ -83,6 +84,7 @@
   "files.trimFinalNewlines": true,
   "extensions.ignoreRecommendations": true,
   "git.openRepositoryInParentFolders": "never",
+  "git.confirmSync": false,
   "html.autoClosingTags": false,
   "html.suggest.html5": false,
   "python.linting.flake8Args": [
