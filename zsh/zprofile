@@ -1,6 +1,5 @@
 # Read BASH profile, for compatibility
-# Not needed if already present in /etc/zsh/zprofile
-# emulate sh -c "source /etc/profile"
+emulate sh -c "source /etc/profile"
 
 # Disable X11 display scaling
 export WINIT_X11_SCALE_FACTOR=1
