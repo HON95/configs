@@ -95,5 +95,8 @@
     "editor.defaultFormatter": "opentofu.vscode-opentofu",
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file"
-  }
+  },
+  "mermaid.vscode.aiExportName": false,
+  "mermaidChart.aiSkills.enabled": false,
+  "mermaidChart.aiSkills.promptOnDetect": false
 }
