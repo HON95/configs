@@ -1,7 +1,0 @@
-// ~/.config/Code - OSS/User/keybindings.json
-[
-    {
-        "key": "ctrl+v",
-        "command": "-editor.action.clipboardPasteAction"
-    }
-]
